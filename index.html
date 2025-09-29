@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MURIITHI'S FOOD RESTAURANT | Fine Dining Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c5a467;
+            --primary-dark: #a88a52;
+            --secondary: #2c3e50;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --white: #ffffff;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: hsla(0, 67%, 31%, 0.949);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 16px;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after, nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Page Styles */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Home Page */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--white);
+            font-size: 30px;
+        }
+        
+        /* Menu Page */
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            padding: 10px 25px;
+            background: var(--light);
+            border: 1px solid var(--light-gray);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .menu-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .menu-item:hover .menu-img img {
+            transform: scale(1.1);
+        }
+        
+        .menu-content {
+            padding: 20px;
+        }
+        
+        .menu-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .menu-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .menu-price {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 18px;
+        }
+        
+        /* Gallery Page */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 280px;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Contacts Page */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            margin-right: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-col p, .footer-col li {
+            margin-bottom: 10px;
+            color: #bfc9d3;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li a {
+            color: #bfc9d3;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 0, 0, 0.945);
+            color: #0a71d8;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 48px;
+            }
+            
+            .hero p {
+                font-size: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">MURIITHI'S <span>RESTAURANT</span></a>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="menu">Menu</a></li>
+                    <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                    <li><a href="#" class="nav-link" data-page="contacts">Contacts</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div class="page active" id="home">
+        <section class="hero">
+            <div class="hero-content">
+                
+                <p>Muriithi’s Restaurant is a premier dining destination located in the heart of the city, offering a perfect blend of tradition, flavor, and hospitality. Known for its elegant ambiance and warm service, the restaurant caters to food lovers who crave authentic local and international cuisine in a refined setting. 
+
+With a spacious, beautifully designed interior and street-facing views, Muriithi’s Restaurant stands tall as a culinary landmark. The menu features signature dishes like spicy dum biryani, chicken chow mein, ugali with goat wet fry, buffalo chicken wings, and aromatic pilau — all freshly prepared using high-quality ingredients.
+
+Whether you're stopping by for a casual lunch, a business meeting, or a family dinner, Muriithi’s delivers an unforgettable experience. </p>
+                <a href="#" class="btn nav-link" data-page="menu">View Our Menu</a>
+            </div>
+        </section>
+        
+        <section class="features-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Choose Us</h2>
+                    <p>Discover what makes our restaurant special</p>
+                </div>
+                
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Fine Dining</h3>
+                        <p>Expertly crafted dishes using the freshest seasonal ingredients</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-wine-glass-alt"></i>
+                        </div>
+                        <h3>Premium Wines</h3>
+                        <p>Curated selection of wines from around the world to complement your meal</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <h3>Exceptional Service</h3>
+                        <p>Attentive and knowledgeable staff dedicated to your comfort</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Menu Page -->
+    <div class="page" id="menu">
+        <section class="menu-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Menu</h2>
+                    <p>Discover our carefully crafted dishes made with passion</p>
+                </div>
+                
+                <div class="menu-categories">
+                    <button class="category-btn active">All</button>
+                
+                   
+                </div>
+                
+                <div class="menu-grid">
+                    <!-- Menu Item 1 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="bufallo chicken wings.jpg" alt="Truffle Arancini">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Bufallo Chicken wings</h3>
+                            <p>Crispy on the outside, juicy on the inside, and coated in a buttery hot sauce — Buffalo wings are the ultimate game-day or snack-time food.
+</p>
+                            <div class="menu-price">Ksh.600</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 2 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="chapo nyama.jpg" alt="Grilled Salmon">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Chapo Nyama</h3>
+                            <p>A popular Kenyan dish called chapo loved by most kenyans.Served with Goat meet.</p>
+                            <div class="menu-price">Ksh. 450 </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 3 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="chicken chow mein.jpg" alt="Chocolate Lava Cake">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Chicken chow mein</h3>
+                            <p>A delicious, fast-fried noodle meal with tender chicken, crisp veggies, and rich Asian flavors — perfect for lunch or dinner.
+</p>
+                            <div class="menu-price">Ksh. 1,800</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 4 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="chicken empanadas.jpg" alt="Artisan Cocktails">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Chicken Empanadas</h3>
+                            <p>Golden, flaky dough filled with spiced chicken — perfect as a snack, appetizer, or meal-on-the-go.
+
+</p>
+                            <div class="menu-price">Ksh. 617</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 5 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="lasagna.jpg" alt="Beef Tenderloin">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Lasagna</h3>
+                            <p>Rich, cheesy, and full of flavor — lasagna is comfort food at its finest, with layers of meat, sauce, pasta, and melty cheese baked to golden perfection.
+
+</p>
+                            <div class="menu-price">Ksh. 350</div>
+                        </div>
+                    </div>
+                      <!-- Menu Item 6 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="pilau.jpg" alt="Beef Tenderloin">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Pilau</h3>
+                            <p>East African Pilau** is rich, savory, and full of aromatic flavors — a festive dish often served at weddings, holidays, or family gatherings.
+
+
+
+</p>
+                            <div class="menu-price">Ksh. 350</div>
+                        </div>
+                    </div>
+                      <!-- Menu Item 7 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="spaghetti.jpg" alt="Beef Tenderloin">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Spaghetti</h3>
+                            <p>Long, thin pasta noodles cooked al dente and paired with flavorful sauces like Bolognese, Marinara, Pesto, or Alfredo. Spaghetti is a versatile, satisfying meal enjoyed worldwide.
+
+
+
+</p>
+                            <div class="menu-price">Ksh. 250</div>
+                        </div>
+                    </div>
+                      <!-- Menu Item 8 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="spicy dum biryani.jpg" alt="Beef Tenderloin">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Spicy dum Biryani</h3>
+                            <p>A royal Indian dish bursting with bold spices, tender meat, and fragrant rice — sealed and slow-cooked ("dum") to perfection.
+
+
+</p>
+                            <div class="menu-price">Ksh. 400</div>
+                        </div>
+                    </div>
+                                     <!-- Menu Item 9 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="ugali,goat wet fry,sukuma wiki with kachumbari.jpg" alt="Beef Tenderloin">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Ugali Served with wet fry,sukuma wiki and kachumbari</h3>
+                            <p>Ugali is  A stiff porridge made from maize (corn) flour and water — filling, simple, and perfect for scooping up stews.
+
+
+
+</p>
+                            <div class="menu-price">Ksh. 800</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Menu Item 10 -->
+                    <div class="menu-item">
+                        <div class="menu-img">
+                            <img src="mukimo and mayo chicken.jpg" alt="Seafood Platter">
+                        </div>
+                        <div class="menu-content">
+                            <h3>Mukimo And mayo chicken</h3>
+                            <p>Soft, flavorful, and wholesome — Mukimo is a comforting staple, especially during family gatherings and traditional ceremonies.
+</p>
+                            <div class="menu-price">Ksh. 320</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Gallery Page -->
+    <div class="page" id="gallery">
+        <section class="gallery-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Gallery</h2>
+                    <p>Behind the scenes and culinary creations</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="mine.jpg" alt="Restaurant Interior">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Plated Dish">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Grilled Salmon">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Truffle Arancini">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image 1.jpg" alt="Chocolate Lava Cake">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Artisan Cocktails">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image 2.jpg" alt="Beef Tenderloin">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image 3.jpg" alt="Chef Cooking">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contacts Page -->
+    <div class="page" id="contacts">
+        <section class="contacts-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                    <p>We'd love to hear from you</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-details">
+                            <h3>Get In Touch</h3>
+                            <p>Have questions about our menu, reservations, or events? Reach out to us!</p>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Murang'a Town, Moi Avenue</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>0796 88 55 19</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>wilfredmuriithi8@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Opening Hours</h4>
+                                <p>Monday - Thursday: 6:00 AM - 10:00 PM</p>
+                                <p>Friday - Saturday: 6:00 AM - 11:00 PM</p>
+                                <p>Sunday: 10:00 AM - 9:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" placeholder="Subject">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>MURIITHI'S RESTAURANT</h3>
+                    <p>A fine dining experience that celebrates culinary artistry with the finest ingredients and exceptional service.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="menu">Menu</a></li>
+                        <li><a href="#" class="nav-link" data-page="gallery">Gallery</a></li>
+                        <li><a href="#" class="nav-link" data-page="contacts">Contacts</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Thursday: 6:00 AM - 10:00 PM</li>
+                        <li>Friday - Saturday: 6:00 AM - 11:00 PM</li>
+                        <li>Sunday: 10:00 AM - 9:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for special offers and updates.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-top: 10px;">
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 MURIITHI'S RESTAURANT. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page Navigation
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            // Toggle mobile menu
+            mobileToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                this.innerHTML = navMenu.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Page switching
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    const targetPage = this.getAttribute('data-page');
+                    
+                    // Remove active class from all pages and links
+                    pages.forEach(page => page.classList.remove('active'));
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    
+                    // Add active class to target page and link
+                    document.getElementById(targetPage).classList.add('active');
+                    this.classList.add('active');
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                });
+            });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
+            }
+            
+            // Menu category filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            if (categoryBtns.length > 0) {
+                categoryBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        // Remove active class from all buttons
+                        categoryBtns.forEach(b => b.classList.remove('active'));
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        // In a real implementation, this would filter menu items
+                        // For this demo, we'll just show a message
+                        if (this.textContent !== 'All') {
+                            console.log(`Filtering by: ${this.textContent}`);
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
